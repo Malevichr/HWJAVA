@@ -63,7 +63,7 @@ public class LagrangePolynomial {
 
         ArrayList<Double> coefficients = getLagrangeCoefficients(points);
 
-        System.out.println("Коэффициенты многочлена:");
+        System.out.println("Koefs");
         for (double coef : coefficients) {
             System.out.print(coef + " ");
         }
