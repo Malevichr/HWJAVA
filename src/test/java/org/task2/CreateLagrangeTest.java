@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class NewtonTest {
+class CreateLagrangeTest {
 
     @Test
     void testSingleNode() {
@@ -16,8 +16,8 @@ class NewtonTest {
                 new Node(2.0, 5.0)
         ));
 
-        CreatePolynomialCoefficients newton = new CreatePolynomialCoefficients.Newton();
-        ArrayList<Double> coefficients = newton.create(nodes);
+        CreatePolynomialCoefficients.Lagrange lagrange = new CreatePolynomialCoefficients.Lagrange();
+        ArrayList<Double> coefficients = lagrange.create(nodes);
 
         // Ожидается полином: P(x) = 5
         assertEquals(1, coefficients.size());
@@ -31,8 +31,8 @@ class NewtonTest {
                 new Node(3.0, 4.0)
         ));
 
-        CreatePolynomialCoefficients newton = new CreatePolynomialCoefficients.Newton();
-        ArrayList<Double> coefficients = newton.create(nodes);
+        CreatePolynomialCoefficients.Lagrange lagrange = new CreatePolynomialCoefficients.Lagrange();
+        ArrayList<Double> coefficients = lagrange.create(nodes);
 
         // Ожидается полином: P(x) = x + 1
         assertEquals(2, coefficients.size());
@@ -48,8 +48,8 @@ class NewtonTest {
                 new Node(2.0, 1.0)
         ));
 
-        CreatePolynomialCoefficients newton = new CreatePolynomialCoefficients.Newton();
-        ArrayList<Double> coefficients = newton.create(nodes);
+        CreatePolynomialCoefficients.Lagrange lagrange = new CreatePolynomialCoefficients.Lagrange();
+        ArrayList<Double> coefficients = lagrange.create(nodes);
 
         // Ожидается полином: P(x) = x^2 - 2x + 1
         assertEquals(3, coefficients.size());
@@ -66,8 +66,8 @@ class NewtonTest {
                 new Node(1.0, 2.0)
         ));
 
-        CreatePolynomialCoefficients newton = new CreatePolynomialCoefficients.Newton();
-        ArrayList<Double> coefficients = newton.create(nodes);
+        CreatePolynomialCoefficients.Lagrange lagrange = new CreatePolynomialCoefficients.Lagrange();
+        ArrayList<Double> coefficients = lagrange.create(nodes);
 
         // Ожидается полином: P(x) = 2x
         assertEquals(2, coefficients.size());
@@ -83,8 +83,8 @@ class NewtonTest {
                 new Node(3.0, 9.0)
         ));
 
-        CreatePolynomialCoefficients newton = new CreatePolynomialCoefficients.Newton();
-        ArrayList<Double> coefficients = newton.create(nodes);
+        CreatePolynomialCoefficients.Lagrange lagrange = new CreatePolynomialCoefficients.Lagrange();
+        ArrayList<Double> coefficients = lagrange.create(nodes);
 
         // Ожидается полином: P(x) = x^2
         assertEquals(3, coefficients.size());

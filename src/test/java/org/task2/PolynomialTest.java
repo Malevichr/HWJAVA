@@ -1,13 +1,9 @@
 package org.task2;
 
-import kotlin.Pair;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 class PolynomialTest {
 
@@ -75,11 +71,6 @@ class PolynomialTest {
         Assertions.assertEquals(tp, p.times(p1));
         Polynomial p2 = new Polynomial.Base();
         Assertions.assertEquals(new Polynomial.Base(), p.times(p2));
-
-    }
-
-    @Test
-    void Test() {
 
     }
 }
