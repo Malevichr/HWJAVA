@@ -79,9 +79,11 @@ public interface InterpolationPolynomial extends Polynomial {
         }
         @Override
         public InterpolationPolynomial addNodes(ArrayList<Node> nodes) {
-            ArrayList<Node> newNodes = new ArrayList<>(this.nodes);
-            newNodes.addAll(nodes);
-            return new Newton(newNodes);
+            InterpolationPolynomial newPolynomial = this;
+            for (Node node : nodes){
+                newPolynomial = newPolynomial.addNode(node);
+            }
+            return newPolynomial;
         }
 
         @Override
