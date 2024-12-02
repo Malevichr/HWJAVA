@@ -1,5 +1,6 @@
 package org.task2;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class InterpolationPolynomialTest {
+class InterpolationPolynomialTest {
     private final ArrayList<Node> nodesFirstSet = new ArrayList<>(
             List.of(
                     new Node(1.0, 1.0),
@@ -32,6 +33,15 @@ public class InterpolationPolynomialTest {
                     new Node(2.0, 1.0)
             )
     );
+    private final ArrayList<Node> nodesGreat = new ArrayList<>();
+
+    @BeforeEach
+    public void setup(){
+        for (int i = 0; i <= 500; i++){
+            nodesGreat.add(new Node((double) i, (double)i /2 ));
+        }
+    }
+
     @Test
     void lagrangeTest(){
         InterpolationPolynomial lagrangePolynomial = new InterpolationPolynomial.Lagrange(nodesFirstSet);
@@ -45,5 +55,15 @@ public class InterpolationPolynomialTest {
         InterpolationPolynomial actual = newtonPolynomial.addNodes(nodesSecondSet);
         InterpolationPolynomial expected = new InterpolationPolynomial.Newton(nodesAll);
         assertEquals(expected, actual);
+    }
+    @Test
+    void timeTest(){
+        long startTime = System.currentTimeMillis();
+        new InterpolationPolynomial.Lagrange(nodesGreat);
+        System.out.println(System.currentTimeMillis() - startTime);
+
+        startTime = System.currentTimeMillis();
+        new InterpolationPolynomial.Newton(nodesGreat);
+        System.out.println(System.currentTimeMillis() - startTime);
     }
 }

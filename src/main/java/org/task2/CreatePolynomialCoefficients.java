@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public interface CreatePolynomialCoefficients {
     ArrayList<Double> create(ArrayList<Node> nodes);
 
-
     final class Lagrange implements CreatePolynomialCoefficients {
 
         @Override
@@ -37,7 +36,7 @@ public interface CreatePolynomialCoefficients {
 
     final class Newton implements CreatePolynomialCoefficients {
         @Override
-        public ArrayList<Double> create(ArrayList<Node> nodes){
+        public ArrayList<Double> create(ArrayList<Node> nodes) {
             int n = nodes.size();
             // Вычисляем разделённые разности
             double[][] dividedDifferences = new double[n][n];

@@ -31,7 +31,7 @@ class CreateLagrangeTest {
                 new Node(3.0, 4.0)
         ));
 
-        CreatePolynomialCoefficients.Lagrange lagrange = new CreatePolynomialCoefficients.Lagrange();
+        CreatePolynomialCoefficients lagrange = new CreatePolynomialCoefficients.Lagrange();
         ArrayList<Double> coefficients = lagrange.create(nodes);
 
         // Ожидается полином: P(x) = x + 1
@@ -48,7 +48,7 @@ class CreateLagrangeTest {
                 new Node(2.0, 1.0)
         ));
 
-        CreatePolynomialCoefficients.Lagrange lagrange = new CreatePolynomialCoefficients.Lagrange();
+        CreatePolynomialCoefficients lagrange = new CreatePolynomialCoefficients.Lagrange();
         ArrayList<Double> coefficients = lagrange.create(nodes);
 
         // Ожидается полином: P(x) = x^2 - 2x + 1
@@ -66,7 +66,7 @@ class CreateLagrangeTest {
                 new Node(1.0, 2.0)
         ));
 
-        CreatePolynomialCoefficients.Lagrange lagrange = new CreatePolynomialCoefficients.Lagrange();
+        CreatePolynomialCoefficients lagrange = new CreatePolynomialCoefficients.Lagrange();
         ArrayList<Double> coefficients = lagrange.create(nodes);
 
         // Ожидается полином: P(x) = 2x
@@ -83,7 +83,7 @@ class CreateLagrangeTest {
                 new Node(3.0, 9.0)
         ));
 
-        CreatePolynomialCoefficients.Lagrange lagrange = new CreatePolynomialCoefficients.Lagrange();
+        CreatePolynomialCoefficients lagrange = new CreatePolynomialCoefficients.Lagrange();
         ArrayList<Double> coefficients = lagrange.create(nodes);
 
         // Ожидается полином: P(x) = x^2

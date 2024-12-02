@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class PolynomialTest {
 
     @BeforeEach
@@ -72,5 +75,34 @@ class PolynomialTest {
         Polynomial p2 = new Polynomial.Base();
         Assertions.assertEquals(new Polynomial.Base(), p.times(p2));
 
+        Polynomial pi1 = new Polynomial.Base(1.);
+        Polynomial pi2 = new Polynomial.Base(-2., 1.);
+
+        System.out.println(pi1);
+        System.out.println(pi2);
+        System.out.println(pi1.times(pi2));
+    }
+
+    @Test
+    void myTest() {
+        ArrayList<Node> nodes = new ArrayList<>(
+                List.of(
+                        new Node(0.0, 0.0),
+                        new Node(1.0, 1.0)
+                )
+        );
+        InterpolationPolynomial newton = new InterpolationPolynomial.Newton(nodes);
+        System.out.println(newton);
+        newton = newton.addNode(new Node(3., 4.));
+        System.out.println(newton);
+        ArrayList<Node> nodes2 = new ArrayList<>(
+                List.of(
+                        new Node(0.0, 0.0),
+                        new Node(1.0, 1.0),
+                        new Node(3.0, 4.0)
+                )
+        );
+        InterpolationPolynomial.Newton newton2 = new InterpolationPolynomial.Newton(nodes2);
+        System.out.println(newton2);
     }
 }
