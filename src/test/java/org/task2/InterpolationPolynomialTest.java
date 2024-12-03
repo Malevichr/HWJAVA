@@ -18,19 +18,19 @@ class InterpolationPolynomialTest {
     );
     private final ArrayList<Node> nodesSecondSet = new ArrayList<>(
             List.of(
-                    new Node(4.0, 1.0),
-                    new Node(3.0, 2.0),
-                    new Node(2.0, 1.0)
+                    new Node(4.0, 10.0),
+                    new Node(5.0, 20.0),
+                    new Node(6.0, 30.0)
             )
     );
-    private final ArrayList<Node> nodesAll = new ArrayList<>(
+    private final ArrayList<Node> nodesAll = new ArrayList<Node>(
             List.of(
-                    new Node(4.0, 1.0),
-                    new Node(3.0, 2.0),
-                    new Node(2.0, 1.0),
-                    new Node(4.0, 1.0),
-                    new Node(3.0, 2.0),
-                    new Node(2.0, 1.0)
+                    new Node(1.0, 1.0),
+                    new Node(2.0, 4.0),
+                    new Node(3.0, 5.0),
+                    new Node(4.0, 10.0),
+                    new Node(5.0, 20.0),
+                    new Node(6.0, 30.0)
             )
     );
     private final ArrayList<Node> nodesGreat = new ArrayList<>();
@@ -59,11 +59,18 @@ class InterpolationPolynomialTest {
     @Test
     void timeTest(){
         long startTime = System.currentTimeMillis();
-        new InterpolationPolynomial.Lagrange(nodesGreat);
-        System.out.println(System.currentTimeMillis() - startTime);
+        InterpolationPolynomial lagrange = new InterpolationPolynomial.Lagrange(nodesGreat);
+        System.out.println("Lagrange init time " + (System.currentTimeMillis() - startTime));
+        startTime = System.currentTimeMillis();
+        lagrange.addNode(new Node(1000., 2000.));
+        System.out.println("Lagrange add time " + (System.currentTimeMillis() - startTime));
 
         startTime = System.currentTimeMillis();
-        new InterpolationPolynomial.Newton(nodesGreat);
-        System.out.println(System.currentTimeMillis() - startTime);
+        InterpolationPolynomial newton = new InterpolationPolynomial.Newton(nodesGreat);
+        System.out.println("Newton init time " + (System.currentTimeMillis() - startTime));
+        startTime = System.currentTimeMillis();
+        newton.addNode(new Node(1000., 2000.));
+        System.out.println("Newton add time " + (System.currentTimeMillis() - startTime));
+
     }
 }

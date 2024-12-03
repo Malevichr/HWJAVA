@@ -41,7 +41,9 @@ public interface InterpolationPolynomial extends Polynomial {
 
         @Override
         public InterpolationPolynomial addNode(Node node) {
-            return addNodes((ArrayList<Node>) Collections.singletonList(node));
+            ArrayList <Node> nodes = new ArrayList<>();
+            nodes.add(node);
+            return addNodes(nodes);
         }
 //
 //        @Override
