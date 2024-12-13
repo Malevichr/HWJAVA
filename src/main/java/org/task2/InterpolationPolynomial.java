@@ -45,31 +45,31 @@ public interface InterpolationPolynomial extends Polynomial {
             nodes.add(node);
             return addNodes(nodes);
         }
-//
-//        @Override
-//        public double calculate(double x) {
-//            ArrayList<Double> xVal = new ArrayList<Double>();
-//            ArrayList<Double> yVal = new ArrayList<Double>();
-//
-//            for (Node node : nodes) {
-//                xVal.add(node.x());
-//                yVal.add(node.y());
-//            }
-//            double result = 0.0;
-//            int n = nodes.size();
-//
-//            for (int i = 0; i < n; i++) {
-//                double term = yVal.get(i);
-//                for (int j = 0; j < n; j++) {
-//                    if (j != i) {
-//                        term *= (x - xVal.get(j)) / (xVal.get(i) - xVal.get(j));
-//                    }
-//                }
-//                result += term;
-//            }
-//
-//            return result;
-//        }
+
+        @Override
+        public double calculate(double x) {
+            ArrayList<Double> xVal = new ArrayList<Double>();
+            ArrayList<Double> yVal = new ArrayList<Double>();
+
+            for (Node node : nodes) {
+                xVal.add(node.x());
+                yVal.add(node.y());
+            }
+            double result = 0.0;
+            int n = nodes.size();
+
+            for (int i = 0; i < n; i++) {
+                double term = yVal.get(i);
+                for (int j = 0; j < n; j++) {
+                    if (j != i) {
+                        term *= (x - xVal.get(j)) / (xVal.get(i) - xVal.get(j));
+                    }
+                }
+                result += term;
+            }
+
+            return result;
+        }
     }
 
     class Newton extends Abstract {
