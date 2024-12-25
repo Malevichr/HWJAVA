@@ -9,7 +9,7 @@ public interface InterpolationPolynomial extends Polynomial {
     InterpolationPolynomial addNode(Node node);
 
     abstract class Abstract extends Polynomial.Base implements InterpolationPolynomial {
-        protected final ArrayList<Node> nodes;
+        public final ArrayList<Node> nodes;
 
         public Abstract(
                 ArrayList<Node> nodes,
