@@ -15,11 +15,15 @@ interface EvaluateQuadratureForm {
                 evaluatedValues[value] = it
             }
         }
+
+        override fun toString(): String {
+            return this.javaClass.simpleName
+        }
     }
 
     class LeftRectangle(
-        private val function: (Double) -> Double,
-    ) : EvaluateQuadratureForm {
+        function: (Double) -> Double,
+    ) : Abstract(function) {
         override fun evaluate(a: Double, b: Double): Double {
             val c1: Double = (b - a)
             val result: Double = c1 * function(a)
@@ -52,8 +56,8 @@ interface EvaluateQuadratureForm {
     }
 
     class Gauss(
-        private val function: (Double) -> Double,
-    ) : EvaluateQuadratureForm {
+        function: (Double) -> Double,
+    ) : Abstract(function) {
         override fun evaluate(a: Double, b: Double): Double {
             val x1 = (a + b) / 2.0 + (b - a) / 2.0 * (-sqrt(3.0 / 5.0))
             val x2 = (a + b) / 2.0

@@ -3,19 +3,19 @@ package org.task2.numericmethods.lab2
 import org.task2.numericmethods.tabulate
 import kotlin.math.*
 
-fun main(){
-    printResults(EvaluateQuadratureForm.LeftRectangle{ E.pow(-(it*it))}, "Left Rectangle")
+fun main() {
+    printResults(EvaluateQuadratureForm.LeftRectangle { E.pow(-(it * it)) })
     println()
-    printResults(EvaluateQuadratureForm.Trapezoid{ E.pow(-(it*it))}, "Trapezoid")
+    printResults(EvaluateQuadratureForm.Trapezoid { E.pow(-(it * it)) })
     println()
-    printResults(EvaluateQuadratureForm.Gauss{ E.pow(-(it*it))}, "Gauss")
+    printResults(EvaluateQuadratureForm.Gauss { E.pow(-(it * it)) })
     println()
-    printResults(EvaluateQuadratureForm.Simpson{ E.pow(-(it*it))}, "Simpson")
+    printResults(EvaluateQuadratureForm.Simpson { E.pow(-(it * it)) })
     println()
 }
 
-fun printResults(quadratureForm: EvaluateQuadratureForm, tag: String) {
-    println(tag)
+fun printResults(quadratureForm: EvaluateQuadratureForm) {
+    println(quadratureForm)
     val headers = listOf("Xi", "Tabulated", "Sn", "Error", "N")
     val rows = mutableListOf<Row>()
     val range = 0.2
@@ -29,17 +29,19 @@ fun printResults(quadratureForm: EvaluateQuadratureForm, tag: String) {
         var error = 100000.0
         var sn = 0.0
         while (error > 10.0.pow(-6)) {
-            n *= 2
             sn = evaluateIntegral.evaluate(xi, n) * 2.0 / (sqrt(Math.PI))
             error = abs(sn - tabulated)
+            n *= 2
         }
-        rows.add(Row(
-            xi,
-            tabulated,
-            sn,
-            error,
-            n
-        ))
+        rows.add(
+            Row(
+                xi,
+                tabulated,
+                sn,
+                error,
+                n / 2
+            )
+        )
     }
 
 
