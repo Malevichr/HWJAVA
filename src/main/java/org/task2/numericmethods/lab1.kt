@@ -25,6 +25,8 @@ var yValuesGraphical: MutableList<Double> = mutableListOf()
 
 fun tabulate(x: Double): Double {
     val n = 20
+
+
     var result = 0.0
     var a_i = x
     var current = 0
